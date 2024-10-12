@@ -7,16 +7,17 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 // Container for the section
 const SvcContainer = styled.div`
   height: 928px;
-  width: 100vw;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #0a0a0a;
-  border-width: 1px 0 1px 0;
-  border-style: solid;
-  border-color: rgba(61, 49, 127, 0.2);
   overflow: hidden;
+  /* border-width: 1px, 0px, 1px, 0px; */
+  border-width: 1px;
+  border-style: solid;
+  border-top-color: rgb(61, 49, 127);
+  border-bottom-color: rgb(61, 49, 127);
 `;
 
 // Background image styling with dull overlay
@@ -24,11 +25,28 @@ const SvcBGImage = styled.div`
   background-image: url(${BGI});
   background-size: cover;
   background-position: center;
-  height: 100%;
+  height: 750px;
   width: 100%;
   position: absolute;
   z-index: 1;
-  filter: brightness(0.4); /* This makes the background image dull */
+  filter: brightness(0.4);
+  top: 0px;
+`;
+
+const SvcBefore = styled.div`
+  position: absolute;
+  height: 878px;
+  gap: 0px;
+  border: 1px;
+  opacity: 0px;
+  z-index: 3;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0) 0%,
+    rgba(10, 10, 10, 0.9) 64.7%,
+    #0a0a0a 70.43%
+  );
+  border-bottom: 1px solid rgba(50, 50, 50, 1);
 `;
 
 // Dark overlay on top of the background
@@ -45,13 +63,15 @@ const SvcOverlay = styled.div`
 // Title for the services section
 const SvcTitle = styled.h1`
   color: #ffffff;
-  font-family: "Inter", sans-serif;
-  font-size: 40px;
-  font-weight: 500;
-  line-height: 48px;
   position: absolute;
   top: 50px;
   z-index: 3;
+  font-family: Inter;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+  /* letter-spacing: -0.5px; */
+  text-align: left;
 `;
 
 // Container for all the service items
@@ -59,16 +79,16 @@ const SvcContent = styled.div`
   width: 1152px;
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Three columns for services */
-  grid-gap: 24px; /* Space between items */
+  grid-gap: 32px;
   position: relative;
   z-index: 3; /* Above background and overlay */
-  margin-top: 150px; /* Adjust for spacing below the title */
+  margin-top: 50px;
 `;
 
 // Individual service item styling
 const SvcItem = styled.div`
-  width: 364px;
-  height: 192px;
+  width: 320px;
+  height: 160px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid;
@@ -95,18 +115,39 @@ const SvcItemIcon = styled.div`
   color: white;
 `;
 
+const SvcIconImg = styled.img`
+  width: 44px;
+  height: 44px;
+  gap: 0px;
+  border-radius: 12px;
+  border: 1px;
+  opacity: 0px;
+  background: rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(42.79999923706055px);
+`;
+
 // Title inside each service card
 const SvcItemTitle = styled.h2`
-  font-size: 18px;
+  font-family: Inter;
+  font-size: 16px;
   font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+  text-align: left;
   margin-bottom: 8px;
+  margin-top: 50px;
 `;
 
 // Text inside each service card
 const SvcItemText = styled.p`
+  font-family: Inter;
   font-size: 14px;
+  font-weight: 400;
   line-height: 20px;
-  opacity: 0.75;
+  letter-spacing: -0.5px;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.6);
 `;
 
 // Example data for services, including title, text, and an icon for each card
@@ -162,13 +203,16 @@ const Services = () => {
   return (
     <SvcContainer>
       <SvcBGImage />
+
       <SvcOverlay />
+      <SvcBefore />
       <SvcTitle>Explore our services</SvcTitle>
       <SvcContent>
         {services.map((service, index) => (
           <SvcItem key={index}>
             <SvcItemIcon>
-              <FontAwesomeIcon icon={service.icon} />
+              <SvcIconImg src="assets/icon.png" />
+              {/* <FontAwesomeIcon icon={service.icon} /> */}
             </SvcItemIcon>
             <SvcItemTitle>{service.title}</SvcItemTitle>
             <SvcItemText>{service.text}</SvcItemText>

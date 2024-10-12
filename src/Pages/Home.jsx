@@ -4,6 +4,7 @@ import Header from "../Components/Header";
 import Hero from "../Components/Hero";
 import BGI from "../assets/herobanner.png";
 import Services from "../Components/Services";
+import Footer from "../Components/Footer";
 
 const HeroContainer = styled.div`
   height: 1024px;
@@ -31,6 +32,7 @@ const Home = () => {
         </HeroBanner>
       </HeroContainer>
       <Services />
+      <Footer />
     </>
   );
 };
