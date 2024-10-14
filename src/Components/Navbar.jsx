@@ -17,12 +17,12 @@ const HeaderWrapper = styled.header`
 `;
 
 const Logo = styled.div`
-  width: 95px; /* Desktop size */
-  height: auto;
-  margin: 0 auto;
+  width: 95px;
+  height: 32px;
 
   @media screen and (max-width: 768px) {
     width: 195px; /* Mobile size */
+    height: auto;
     max-width: 100%; /* Keep the logo from overflowing */
     margin: 0 auto;
     display: flex;
