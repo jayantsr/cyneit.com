@@ -20,6 +20,9 @@ const BgContent = styled.div`
   align-items: center;
   color: white;
   background: none;
+  @media screen and (max-width: 768px) {
+    top: 100px;
+  }
 `;
 
 const BannerTitle = styled.h1`
@@ -30,6 +33,15 @@ const BannerTitle = styled.h1`
   letter-spacing: -4px;
   text-align: center;
   background: none;
+  @media screen and (max-width: 768px) {
+    width: 312px;
+    font-family: Inter;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 52px;
+    letter-spacing: -2px;
+    text-align: center;
+  }
 `;
 
 const SubTitlecontainer = styled.div`
@@ -55,17 +67,36 @@ const SubTitlecontainer = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: inset 0px 0px 0px 9px rgba(255, 255, 255, 0.03);
   border-radius: 24px;
+
+  @media screen and (max-width: 768px) {
+    width: 367.44px;
+    height: 89px;
+    left: auto;
+    top: 200px;
+  }
 `;
 
 const SubTitle = styled.h2`
   font-size: 24px;
   background: none;
+  @media screen and (max-width: 768px) {
+    font-family: Inter;
+    font-size: 15.26px;
+    font-weight: 600;
+    line-height: 15.26px;
+    text-align: left;
+  }
 `;
 
 const Desccontainer = styled.div`
   top: 620px;
   background: none;
   position: relative;
+
+  @media screen and (max-width: 768px) {
+    top: 400px;
+    height: 200px;
+  }
 `;
 
 const HeroDesc = styled.p`
@@ -76,6 +107,14 @@ const HeroDesc = styled.p`
   line-height: 32px;
   text-align: center;
   background: none;
+  @media screen and (max-width: 768px) {
+    width: 359px;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+  }
 `;
 
 const Hero = (props) => {

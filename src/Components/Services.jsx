@@ -18,6 +18,9 @@ const SvcContainer = styled.div`
   border-style: solid;
   border-top-color: rgb(61, 49, 127);
   border-bottom-color: rgb(61, 49, 127);
+  @media screen and (max-width: 768px) {
+    height: auto;
+  }
 `;
 
 // Background image styling with dull overlay
@@ -72,6 +75,15 @@ const SvcTitle = styled.h1`
   line-height: 48px;
   /* letter-spacing: -0.5px; */
   text-align: left;
+  @media screen and (max-width: 768px) {
+    width: 290px;
+    font-family: Inter;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 48px;
+    text-align: center;
+    word-wrap: break-word;
+  }
 `;
 
 // Container for all the service items
@@ -83,6 +95,13 @@ const SvcContent = styled.div`
   position: relative;
   z-index: 3; /* Above background and overlay */
   margin-top: 50px;
+  /* For mobile screens, make it a single column */
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-gap: 16px; /* Reduced gap for mobile */
+    width: 80%;
+    margin-top: 200px;
+  }
 `;
 
 // Individual service item styling
@@ -104,6 +123,9 @@ const SvcItem = styled.div`
   padding: 24px;
   color: white;
   position: relative;
+  @media screen and (max-width: 769px) {
+    width: 90%;
+  }
 `;
 
 // Icon styling inside each service card

@@ -15,8 +15,11 @@ const FooterWrapper = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-
   background: #030014;
+  @media screen and (max-width: 768px) {
+    height: auto;
+    display: block;
+  }
 `;
 
 const FooterContainer = styled.div`
@@ -28,11 +31,31 @@ const FooterContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    display: block;
+    height: 200px;
+    align-content: center;
+    justify-content: center;
+  }
 `;
 
-const Left = styled.div``;
-const Center = styled.div``;
-const Right = styled.div``;
+const Left = styled.div`
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+  }
+`;
+const Center = styled.div`
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+`;
+const Right = styled.div`
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
 
 const Logo = styled.div`
   width: 95px;
@@ -48,16 +71,19 @@ const SocialIcons = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  opacity: 0px;
 
   & > * {
     margin: 0 10px; /* Space between icons */
     font-size: 24px;
     color: white;
     transition: color 0.3s ease;
-
     &:hover {
       color: #8888ff;
     }
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -68,7 +94,7 @@ const Footer = () => {
         <FooterContainer>
           <Left>
             <h4 className="contact">Contact</h4>
-            <p className="email">Email:hello@cyneit.com</p>
+            <p className="email">Email: hello@cyneit.com</p>
           </Left>
           <Center>
             <SocialIcons>

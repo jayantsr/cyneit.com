@@ -9,6 +9,9 @@ import Footer from "../Components/Footer";
 const HeroContainer = styled.div`
   height: 1024px;
   background: #030014;
+  @media screen and (max-width: 768px) {
+    height: 850px;
+  }
 `;
 
 const HeroBanner = styled.div`
