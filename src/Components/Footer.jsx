@@ -99,11 +99,19 @@ const Footer = () => {
           </Left>
           <Center>
             <SocialIcons>
-              <FontAwesomeIcon icon={faInstagram} />
+              <a href="https://www.instagram.com/cyneit?igsh=NGswam1veXc0MmM0&utm_source=qr">
+                <FontAwesomeIcon icon={faInstagram} />
+              </a>
+
               <FontAwesomeIcon icon={faTwitter} />
-              <FontAwesomeIcon icon={faFacebook} />
+              <a href="https://www.facebook.com/share/NWDYbrZdX7AwuGHJ/?mibextid=LQQJ4d">
+                <FontAwesomeIcon icon={faFacebook} />
+              </a>
+
               <FontAwesomeIcon icon={faYoutube} />
-              <FontAwesomeIcon icon={faLinkedin} />
+              <a href="https://www.linkedin.com/company/cyne-it-virtual-solutions-ltd/">
+                <FontAwesomeIcon icon={faLinkedin} />
+              </a>
             </SocialIcons>
             <p className="copy">© Cyneit, all rights reserved.</p>
           </Center>
