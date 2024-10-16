@@ -94,7 +94,8 @@ const Footer = () => {
         <FooterContainer>
           <Left>
             <h4 className="contact">Contact</h4>
-            <p className="email">Email: hello@cyneit.com</p>
+            <p className="email">Email: info@cyneit.com</p>
+            <p className="email">Ph: +44 7436 367047</p>
           </Left>
           <Center>
             <SocialIcons>
