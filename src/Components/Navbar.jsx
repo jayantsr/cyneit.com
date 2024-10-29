@@ -112,12 +112,13 @@ const Nav = styled.nav`
   border-radius: 36px;
   background-color: #939393;
   position: absolute;
+  z-index: 9999;
 
   @media screen and (max-width: 768px) {
     display: ${(props) => (props.open ? "flex" : "none")};
     flex-direction: column;
     position: absolute;
-    top: 7rem;
+    top: 9rem;
     left: 0;
     width: 100%;
     text-align: center;
