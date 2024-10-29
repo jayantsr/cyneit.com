@@ -1,142 +1,204 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-// Styled components
+const Wrapper = styled.div`
+  width: 100%;
+  overflow-x: hidden;
+`;
+
 const HeaderWrapper = styled.header`
-  position: relative;
-  z-index: 9999;
+  width: 100%;
+`;
+
+const OfferContainer = styled.div`
+  background: #13111b;
+  width: 100%;
+  height: 64px;
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+  text-align: center;
 
-const Container = styled.div`
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 3rem;
-  top: 0;
-  background: #ffffff;
-  /* padding: 15px 100px; */
+  h4 {
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 2rem;
+  }
 
   @media screen and (max-width: 768px) {
-    width: 80%;
-    justify-content: space-between;
-    padding: 15px 20px;
+    display: none;
+  }
+`;
+
+const NavContainer = styled.div`
+  width: 100%;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  box-sizing: border-box;
+
+  @media screen and (max-width: 768px) {
+    padding: 20px;
+    height: 80px;
+  }
+`;
+
+const Left = styled.div`
+  flex: 1;
+`;
+
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  @media screen and (max-width: 768px) {
+    justify-content: flex-end;
+  }
+`;
+
+const Right = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const ContactBtn = styled.a`
+  display: inline-block;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 36px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 `;
 
 const Logo = styled.div`
   display: flex;
-  align-items: center; /* Center items vertically */
-  gap: 10px; /* Adds space between logo and text */
+  align-items: center;
+  gap: 10px;
 
   img {
-    height: 1.4rem; /* Set the height of the logo */
-    width: auto; /* Keep the aspect ratio */
-  }
-
-  h2 {
-    font-family: "Montserrat", sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.4rem;
-    line-height: 30px;
-    color: #36454f;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    @media screen and (max-width: 768px) {
-      display: none;
-    }
+    height: 32px;
+    width: auto;
   }
 `;
 
 const Nav = styled.nav`
+  width: 292px;
+  height: 48px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 20px;
+  border-radius: 36px;
+  background-color: #939393;
+  position: absolute;
 
   @media screen and (max-width: 768px) {
     display: ${(props) => (props.open ? "flex" : "none")};
     flex-direction: column;
     position: absolute;
-    top: 3rem;
+    top: 7rem;
     left: 0;
     width: 100%;
     text-align: center;
     background: #ffffff;
+    border-radius: 0;
   }
 `;
 
 const NavItem = styled.a`
-  text-decoration: none;
   font-family: "Inter", sans-serif;
-  font-weight: 500;
-  font-size: 16px; /* Ensure same font size across all views */
-  line-height: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #939393;
   color: #000000;
-  padding: 10px;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 24px;
+  transition: background-color 0.3s;
 
   &:hover {
-    opacity: 0.7;
-    color: #000000;
+    background-color: #dddee2;
   }
 
   @media screen and (max-width: 768px) {
-    padding: 10px 10px;
-    width: 80%;
+    padding: 15px;
+    width: 100%;
     border-bottom: 1px solid #dddddd;
+    background: #ffffff;
+    border-radius: 0;
   }
 `;
 
 const MenuIcon = styled.div`
   display: none;
   font-size: 2rem;
-  color: #36454f;
+  color: #000000;
   cursor: pointer;
+  padding: 0 18px;
+  background: #939393;
+  border-radius: 36px;
 
   @media screen and (max-width: 768px) {
     display: block;
-    position: relative;
+    margin-right: 16px;
     z-index: 1001;
   }
 `;
 
-// Navbar Component
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <HeaderWrapper>
-      <Container>
-        <a href="/">
-          <Logo>
-            <img src="assets/logo.svg" alt="Logo" />
-            <h2>CYLOGICS</h2>
-          </Logo>
-        </a>
-
-        {/* Hamburger Menu Icon for Mobile */}
-        <MenuIcon onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? "✖" : "☰"}
-        </MenuIcon>
-
-        {/* Desktop and Mobile Menu */}
-        <Nav open={menuOpen}>
-          <NavItem href="/">Home</NavItem>
-          <NavItem href="#">About</NavItem>
-          <NavItem href="#">Services</NavItem>
-          <NavItem href="#">Contact</NavItem>
-          <NavItem href="#">Blog</NavItem>
-          <NavItem href="#">Partners</NavItem>
-          {/* <NavItem href="#">Careers</NavItem> */}
-        </Nav>
-      </Container>
-    </HeaderWrapper>
+    <Wrapper>
+      <HeaderWrapper>
+        <OfferContainer>
+          <h4>Free IT Assessment - Introductory offer</h4>
+        </OfferContainer>
+        <NavContainer>
+          <Left>
+            <a href="/">
+              <Logo>
+                <img src="assets/logo.svg" alt="Logo" />
+              </Logo>
+            </a>
+          </Left>
+          <Center>
+            <MenuIcon onClick={() => setMenuOpen(!menuOpen)}>
+              {menuOpen ? "✖" : "☰"}
+            </MenuIcon>
+            <Nav open={menuOpen}>
+              <NavItem href="/">Home</NavItem>
+              <NavItem href="#">About us</NavItem>
+              <NavItem href="#">Services</NavItem>
+            </Nav>
+          </Center>
+          <Right>
+            <ContactBtn href="#contact">Contact us</ContactBtn>
+          </Right>
+        </NavContainer>
+      </HeaderWrapper>
+    </Wrapper>
   );
 };
 
