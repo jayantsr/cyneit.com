@@ -150,6 +150,12 @@ const NavItem = styled.a`
   }
 `;
 
+const ContactNavItem = styled(NavItem)`
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+`;
+
 const MenuIcon = styled.div`
   display: none;
   font-size: 2rem;
@@ -191,6 +197,7 @@ const Navbar = () => {
               <NavItem href="/">Home</NavItem>
               <NavItem href="#">About us</NavItem>
               <NavItem href="#">Services</NavItem>
+              <ContactNavItem href="#contact">Contact</ContactNavItem>
             </Nav>
           </Center>
           <Right>
