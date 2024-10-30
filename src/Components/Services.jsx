@@ -13,10 +13,6 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px;
-
-  @media (max-width: 768px) {
-    padding: 10px;
-  }
 `;
 
 const SectionTitleContainer = styled.div`
@@ -34,9 +30,10 @@ const SectionSubTitle = styled.h4`
   line-height: 32px;
   text-align: left;
 
-  @media (max-width: 768px) {
-    font-size: 18px;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
     line-height: 28px;
+    text-align: left;
   }
 `;
 
@@ -48,14 +45,11 @@ const SectionTitle = styled.h2`
   letter-spacing: -2px;
   text-align: left;
 
-  @media (max-width: 1024px) {
-    font-size: 64px;
-    line-height: 64px;
-  }
-
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     font-size: 48px;
     line-height: 56px;
+    letter-spacing: -1px;
+    text-align: left;
   }
 `;
 
@@ -66,31 +60,27 @@ const CardContainer = styled.div`
   margin-top: 20px;
   justify-content: center;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
+    gap: 20px;
     align-items: center;
-    gap: 15px;
   }
 `;
 
 const CardBorder = styled.div`
   overflow: hidden;
   display: flex;
-  margin-top: 20px;
   justify-content: center;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+  @media screen and (max-width: 768px) {
+    width: 100%;
   }
 `;
 
 const CardWrapper = styled.div`
   position: relative;
   width: 512px;
-
-  padding: 2px; // Thickness of the border
+  padding: 2px;
   border-radius: 12px;
   background: linear-gradient(
     106.78deg,
@@ -98,14 +88,12 @@ const CardWrapper = styled.div`
     rgba(255, 255, 255, 0.0759) 104.65%
   );
 
-  @media (max-width: 1024px) {
-    width: 400px;
-  }
-
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
+    padding: 1px;
     width: 100%;
   }
 `;
+
 const Card = styled.div`
   padding: 20px;
   text-align: left;
@@ -114,17 +102,25 @@ const Card = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 320px;
-
-  /* height: 100%; */
   background: #13111b;
-  border-radius: 10px; // Slightly less than the wrapper to keep border visible
+  border-radius: 10px;
   backdrop-filter: blur(40.6px);
+
+  @media screen and (max-width: 768px) {
+    padding: 16px;
+    height: auto;
+  }
 `;
 
 const Icon = styled.img`
   background: transparent;
   margin-right: 0;
   margin-left: auto;
+
+  @media screen and (max-width: 768px) {
+    width: 80px;
+    height: auto;
+  }
 `;
 
 const Bullet = styled.img`
@@ -134,6 +130,10 @@ const Bullet = styled.img`
 const ServiceList = styled.div`
   background: transparent;
   margin-top: 52px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 32px;
+  }
 `;
 
 const ServiceItem = styled.p`
@@ -145,79 +145,77 @@ const ServiceItem = styled.p`
   letter-spacing: -0.5px;
   text-align: left;
 
-  @media (max-width: 768px) {
-    font-size: 20px;
-    line-height: 32px;
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    line-height: 20px;
+    text-align: left;
   }
 `;
 
 const Services = () => {
   return (
-    <>
-      <Wrapper>
-        <SectionTitleContainer>
-          <SectionSubTitle>Explore our range of</SectionSubTitle>
-          <SectionTitle>Services</SectionTitle>
-        </SectionTitleContainer>
-        <CardContainer>
-          <CardBorder>
-            <CardWrapper>
-              <Card>
-                <Icon src={Elipse} style={{ width: "140px", height: "84px" }} />
-                <ServiceList>
-                  <ServiceItem>
-                    <Bullet src={BImg} /> Digital Marketing
-                  </ServiceItem>
-                  <ServiceItem>
-                    <Bullet src={BImg} /> Web Development
-                  </ServiceItem>
-                  <ServiceItem>
-                    <Bullet src={BImg} /> IT Infrastructure Services
-                  </ServiceItem>
-                </ServiceList>
-              </Card>
-            </CardWrapper>
-          </CardBorder>
-          <CardBorder>
-            <CardWrapper>
-              <Card>
-                <Icon src={Diamond} style={{ width: "90px", height: "84px" }} />
-                <ServiceList>
-                  <ServiceItem>
-                    <Bullet src={BImg} /> Security Services
-                  </ServiceItem>
-                  <ServiceItem>
-                    <Bullet src={BImg} /> Strategic & Operational Consulting
-                  </ServiceItem>
-                  <ServiceItem>
-                    <Bullet src={BImg} /> Business Intelligence & Analytics
-                  </ServiceItem>
-                </ServiceList>
-              </Card>
-            </CardWrapper>
-          </CardBorder>
-
-          <CardBorder>
-            <CardWrapper>
-              <Card>
-                <Icon src={Union} style={{ width: "84px", height: "84px" }} />
-                <ServiceList>
-                  <ServiceItem>
-                    <Bullet src={BImg} /> Project Management
-                  </ServiceItem>
-                  <ServiceItem>
-                    <Bullet src={BImg} /> Compliance & Governance
-                  </ServiceItem>
-                  <ServiceItem>
-                    <Bullet src={BImg} /> Additional Potential Services
-                  </ServiceItem>
-                </ServiceList>
-              </Card>{" "}
-            </CardWrapper>
-          </CardBorder>
-        </CardContainer>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <SectionTitleContainer>
+        <SectionSubTitle>Explore our range of</SectionSubTitle>
+        <SectionTitle>Services</SectionTitle>
+      </SectionTitleContainer>
+      <CardContainer>
+        <CardBorder>
+          <CardWrapper>
+            <Card>
+              <Icon src={Elipse} style={{ width: "140px", height: "84px" }} />
+              <ServiceList>
+                <ServiceItem>
+                  <Bullet src={BImg} /> Digital Marketing
+                </ServiceItem>
+                <ServiceItem>
+                  <Bullet src={BImg} /> Web Development
+                </ServiceItem>
+                <ServiceItem>
+                  <Bullet src={BImg} /> IT Infrastructure Services
+                </ServiceItem>
+              </ServiceList>
+            </Card>
+          </CardWrapper>
+        </CardBorder>
+        <CardBorder>
+          <CardWrapper>
+            <Card>
+              <Icon src={Diamond} style={{ width: "90px", height: "84px" }} />
+              <ServiceList>
+                <ServiceItem>
+                  <Bullet src={BImg} /> Security Services
+                </ServiceItem>
+                <ServiceItem>
+                  <Bullet src={BImg} /> Strategic & Operational Consulting
+                </ServiceItem>
+                <ServiceItem>
+                  <Bullet src={BImg} /> Business Intelligence & Analytics
+                </ServiceItem>
+              </ServiceList>
+            </Card>
+          </CardWrapper>
+        </CardBorder>
+        <CardBorder>
+          <CardWrapper>
+            <Card>
+              <Icon src={Union} style={{ width: "84px", height: "84px" }} />
+              <ServiceList>
+                <ServiceItem>
+                  <Bullet src={BImg} /> Project Management
+                </ServiceItem>
+                <ServiceItem>
+                  <Bullet src={BImg} /> Compliance & Governance
+                </ServiceItem>
+                <ServiceItem>
+                  <Bullet src={BImg} /> Additional Potential Services
+                </ServiceItem>
+              </ServiceList>
+            </Card>
+          </CardWrapper>
+        </CardBorder>
+      </CardContainer>
+    </Wrapper>
   );
 };
 

@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import SwirlBackground from "../Components/SwirlBackground";
 import styled from "styled-components";
-import titlesData from "../assets/data/titles.json"; // Import the JSON data
+import titlesData from "../assets/data/titles.json";
 
 const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  position: relative; /* Ensure positioning is set for absolute children */
+  position: relative;
 `;
 
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  /* top: 300px; */
   position: relative;
   @media screen and (max-width: 768px) {
     top: 0;
@@ -27,23 +26,20 @@ const HeadContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent; /* Set this to a solid color if needed */
-  z-index: 10; /* Ensure this is on top of the background */
+  background-color: transparent;
+  z-index: 10;
 `;
 
 const HeadTitle = styled.h2`
   background: transparent;
   width: 1050px;
   color: #ffffff;
-  font-family: Inter Display;
+  font-family: "Inter";
   font-size: 128px;
   font-weight: 500;
   line-height: 132px;
   letter-spacing: -2px;
   text-align: center;
-
-  opacity: ${({ fade }) => fade};
-  transition: opacity 2s ease-in-out;
   @media screen and (max-width: 768px) {
     width: 80%;
     font-size: 10vw;
@@ -53,21 +49,35 @@ const HeadTitle = styled.h2`
 
 const Hero = () => {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
-  const [fade, setFade] = useState(1);
+  const [displayedText, setDisplayedText] = useState("");
+  const typingSpeed = 150; // Adjusted speed of typing each character in ms
+  const pauseBetweenTitles = 3000; // Pause after each full title (3 seconds)
 
   useEffect(() => {
-    const titleCount = titlesData.titles.length;
+    const title = titlesData.titles[currentTitleIndex];
+    let charIndex = 0;
+    let typingTimeout;
 
-    const interval = setInterval(() => {
-      setFade(0); // Fade out
-      setTimeout(() => {
-        setCurrentTitleIndex((prevIndex) => (prevIndex + 1) % titleCount); // Change title
-        setFade(1); // Fade in
-      }, 2000); // Match this to the transition duration (1 second)
-    }, 4000); // Change title every 4 seconds to allow for slower transitions
+    const typeTitle = () => {
+      if (charIndex < title.length) {
+        setDisplayedText(title.slice(0, charIndex + 1));
+        charIndex += 1;
+        typingTimeout = setTimeout(typeTitle, typingSpeed);
+      } else {
+        // Pause before moving to the next title
+        typingTimeout = setTimeout(() => {
+          setDisplayedText("");
+          setCurrentTitleIndex(
+            (prevIndex) => (prevIndex + 1) % titlesData.titles.length
+          );
+        }, pauseBetweenTitles);
+      }
+    };
 
-    return () => clearInterval(interval);
-  }, []);
+    typeTitle();
+
+    return () => clearTimeout(typingTimeout); // Clear timeout on unmount to avoid overlap
+  }, [currentTitleIndex]);
 
   return (
     <>
@@ -76,14 +86,9 @@ const Hero = () => {
           <SwirlBackground />
         </Container>
         <HeadContainer>
-          <HeadTitle fade={fade}>
-            {titlesData.titles[currentTitleIndex]}
-          </HeadTitle>
+          <HeadTitle>{displayedText}</HeadTitle>
         </HeadContainer>
       </Wrapper>
-
-      {/* <OurServices /> */}
-      {/* <Pillers /> */}
     </>
   );
 };

@@ -4,10 +4,10 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   width: 100%;
   overflow-x: hidden;
-`;
-
-const HeaderWrapper = styled.header`
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const OfferContainer = styled.div`
@@ -21,6 +21,7 @@ const OfferContainer = styled.div`
 
   h4 {
     color: #ffffff;
+    background: transparent;
     font-family: "Inter", sans-serif;
     font-size: 1.1rem;
     font-weight: 500;
@@ -33,8 +34,9 @@ const OfferContainer = styled.div`
 `;
 
 const NavContainer = styled.div`
-  width: 100%;
-  height: 64px;
+  margin-top: 66px;
+  width: 90%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -96,10 +98,9 @@ const Logo = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-
   img {
-    height: 32px;
-    width: auto;
+    width: 80.84px;
+    height: auto;
   }
 `;
 
@@ -134,6 +135,7 @@ const NavItem = styled.a`
   background-color: #939393;
   color: #000000;
   text-decoration: none;
+  line-height: 20px;
   padding: 8px 16px;
   border-radius: 24px;
   transition: background-color 0.3s;
@@ -178,34 +180,32 @@ const Navbar = () => {
 
   return (
     <Wrapper>
-      <HeaderWrapper>
-        <OfferContainer>
-          <h4>Free IT Assessment - Introductory offer</h4>
-        </OfferContainer>
-        <NavContainer>
-          <Left>
-            <a href="/">
-              <Logo>
-                <img src="assets/logo.svg" alt="Logo" />
-              </Logo>
-            </a>
-          </Left>
-          <Center>
-            <MenuIcon onClick={() => setMenuOpen(!menuOpen)}>
-              {menuOpen ? "✖" : "☰"}
-            </MenuIcon>
-            <Nav open={menuOpen}>
-              <NavItem href="/">Home</NavItem>
-              <NavItem href="#">About us</NavItem>
-              <NavItem href="#">Services</NavItem>
-              <ContactNavItem href="#contact">Contact</ContactNavItem>
-            </Nav>
-          </Center>
-          <Right>
-            <ContactBtn href="#contact">Contact us</ContactBtn>
-          </Right>
-        </NavContainer>
-      </HeaderWrapper>
+      <OfferContainer>
+        <h4>Free IT Assessment - Introductory offer</h4>
+      </OfferContainer>
+      <NavContainer>
+        <Left>
+          <a href="/">
+            <Logo>
+              <img src="assets/logo.svg" alt="Logo" />
+            </Logo>
+          </a>
+        </Left>
+        <Center>
+          <MenuIcon onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? "✖" : "☰"}
+          </MenuIcon>
+          <Nav open={menuOpen}>
+            <NavItem href="/">Home</NavItem>
+            <NavItem href="#">About us</NavItem>
+            <NavItem href="#">Services</NavItem>
+            <ContactNavItem href="#contact">Contact</ContactNavItem>
+          </Nav>
+        </Center>
+        <Right>
+          <ContactBtn href="#contact">Contact us</ContactBtn>
+        </Right>
+      </NavContainer>
     </Wrapper>
   );
 };

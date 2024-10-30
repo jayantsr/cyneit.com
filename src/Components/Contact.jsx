@@ -2,17 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import map from "../assets/Map.png";
 const Container = styled.div`
-  /* background-color: #13111b; */
   color: white;
   display: flex;
   justify-content: center;
   padding-top: 336px;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    padding-top: 114px;
+  }
 `;
 
 const LeftColumn = styled.div`
   flex: 1;
   max-width: 50%;
   box-sizing: border-box;
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+    padding: 0 32px;
+  }
 `;
 
 const RightColumn = styled.div`
@@ -20,6 +27,9 @@ const RightColumn = styled.div`
   max-width: 50%;
   box-sizing: border-box;
   margin-top: 80px;
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 const Title = styled.h1`
@@ -30,6 +40,15 @@ const Title = styled.h1`
   letter-spacing: -2px;
   text-align: left;
   margin: 0;
+
+  @media screen and (max-width: 768px) {
+    font-family: Inter;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 52px;
+    letter-spacing: -2px;
+    text-align: left;
+  }
 `;
 
 const Subtitle = styled.p`
@@ -39,12 +58,22 @@ const Subtitle = styled.p`
   font-weight: 400;
   line-height: 40px;
   text-align: left;
+  @media screen and (max-width: 768px) {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+  }
 `;
 
 const FormContainer = styled.div`
   color: #a0a0a0;
   max-width: 768px;
   margin-top: 48px;
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 const FormTitle = styled.h2`
@@ -55,11 +84,15 @@ const FormTitle = styled.h2`
   text-align: left;
   color: #908f8c;
   padding-bottom: 16px;
+  @media screen and (max-width: 768px) {
+  }
 `;
 
 const FormGroup = styled.div`
   position: relative;
   margin-bottom: 20px;
+  @media screen and (max-width: 768px) {
+  }
 `;
 
 const Label = styled.label`
@@ -76,6 +109,8 @@ const Label = styled.label`
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
+  @media screen and (max-width: 768px) {
+  }
 `;
 
 const MsgLabel = styled.label`
@@ -91,6 +126,8 @@ const MsgLabel = styled.label`
   top: 20%;
   transform: translateY(-50%);
   pointer-events: none;
+  @media screen and (max-width: 768px) {
+  }
 `;
 
 const Input = styled.input`
@@ -110,6 +147,11 @@ const Input = styled.input`
   &::placeholder {
     color: #a0a0a0;
   }
+  @media screen and (max-width: 768px) {
+    &::placeholder {
+      color: transparent;
+    }
+  }
 `;
 
 const Textarea = styled.textarea`
@@ -128,6 +170,11 @@ const Textarea = styled.textarea`
   &::placeholder {
     color: #a0a0a0;
   }
+  @media screen and (max-width: 768px) {
+    &::placeholder {
+      color: transparent;
+    }
+  }
 `;
 
 const SubmitBtn = styled.a`
@@ -145,9 +192,16 @@ const SubmitBtn = styled.a`
   &:hover {
     opacity: 0.7;
   }
+  @media screen and (max-width: 768px) {
+    margin-left: 65%;
+  }
 `;
 
-const Location = styled.img``;
+const Location = styled.img`
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+`;
 
 const Contact = () => {
   return (
@@ -159,7 +213,7 @@ const Contact = () => {
           below and we’ll get back to you.
         </Subtitle>
         <FormContainer>
-          <FormTitle>Contact Details</FormTitle>
+          <FormTitle>CONTACT DETAILS</FormTitle>
           <FormGroup>
             <Label htmlFor="name">Name</Label>
             <Input type="text" id="name" placeholder="Jonathan" />

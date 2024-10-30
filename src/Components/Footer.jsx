@@ -15,9 +15,10 @@ const FooterWrapper = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
+
   @media screen and (max-width: 768px) {
-    height: auto;
-    display: block;
+    height: auto; /* Allow footer to adjust height */
+    padding: 20px 0;
   }
 `;
 
@@ -29,12 +30,12 @@ const FooterContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   @media screen and (max-width: 768px) {
-    width: 100%;
-    display: block;
-    height: 200px;
-    align-content: center;
-    justify-content: center;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    text-align: center;
+    height: auto;
   }
 `;
 
@@ -52,22 +53,40 @@ const Left = styled.div`
     font-size: 24px;
     font-weight: 500;
     line-height: 28px;
-    letter-spacing: 0.3862070143222809px;
+    letter-spacing: 0.386px;
     text-align: left;
   }
+
   @media screen and (max-width: 768px) {
-    width: 100%;
-    text-align: center;
+    h4 {
+      font-family: Inter;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 18px;
+      text-align: center;
+    }
+    p {
+      font-family: Inter;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 28px;
+      letter-spacing: 0.3862070143222809px;
+      text-align: center;
+      margin: 10px;
+    }
+    margin-bottom: 44px;
   }
 `;
+
 const Center = styled.div`
   @media screen and (max-width: 768px) {
-    width: 100%;
+    margin-bottom: 10px; /* Space between sections */
   }
 `;
+
 const Right = styled.div`
   @media screen and (max-width: 768px) {
-    display: none;
+    display: none; /* Hide logo on smaller screens */
   }
 `;
 
@@ -99,8 +118,15 @@ const SocialIcons = styled.div`
     line-height: 18px;
     text-align: left;
   }
+
   @media screen and (max-width: 768px) {
-    width: 100%;
+    margin-top: 10px;
+    & > * {
+      font-size: 24px; /* Adjust icon size */
+    }
+    p {
+      text-align: center;
+    }
   }
 `;
 
@@ -119,12 +145,10 @@ const Footer = () => {
               <a href="https://www.instagram.com/cyneit?igsh=NGswam1veXc0MmM0&utm_source=qr">
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
-
               <FontAwesomeIcon icon={faTwitter} />
               <a href="https://www.facebook.com/share/NWDYbrZdX7AwuGHJ/?mibextid=LQQJ4d">
                 <FontAwesomeIcon icon={faFacebook} />
               </a>
-
               <FontAwesomeIcon icon={faYoutube} />
               <a href="https://www.linkedin.com/company/cyne-it-virtual-solutions-ltd/">
                 <FontAwesomeIcon icon={faLinkedin} />
