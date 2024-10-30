@@ -15,7 +15,6 @@ const FooterWrapper = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #030014;
   @media screen and (max-width: 768px) {
     height: auto;
     display: block;
@@ -23,9 +22,8 @@ const FooterWrapper = styled.footer`
 `;
 
 const FooterContainer = styled.div`
-  width: 1151.95px;
+  width: 100%;
   height: 66px;
-  /* gap: 0px; */
   opacity: 0px;
   color: rgba(255, 255, 255, 1);
   display: flex;
@@ -41,6 +39,22 @@ const FooterContainer = styled.div`
 `;
 
 const Left = styled.div`
+  h4 {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+  }
+
+  p {
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0.3862070143222809px;
+    text-align: left;
+  }
   @media screen and (max-width: 768px) {
     width: 100%;
     text-align: center;
@@ -57,13 +71,8 @@ const Right = styled.div`
   }
 `;
 
-const Logo = styled.div`
-  width: 95px;
-  height: 32px;
-  top: 40px;
-  left: 128px;
-  gap: 0px;
-  opacity: 0px;
+const Logo = styled.img`
+  width: 165px;
 `;
 
 const SocialIcons = styled.div`
@@ -75,12 +84,20 @@ const SocialIcons = styled.div`
 
   & > * {
     margin: 0 10px; /* Space between icons */
-    font-size: 24px;
+    font-size: 32px;
     color: white;
     transition: color 0.3s ease;
     &:hover {
       color: #8888ff;
     }
+  }
+
+  p {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
   }
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -116,9 +133,7 @@ const Footer = () => {
             <p className="copy">© Cyneit, all rights reserved.</p>
           </Center>
           <Right>
-            <Logo>
-              <img src="assets/logo.svg" alt="" srcset="" />
-            </Logo>
+            <Logo src="assets/logo.svg" />
           </Right>
         </FooterContainer>
       </FooterWrapper>

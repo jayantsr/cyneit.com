@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Union from "../assets/Union.png";
 import Diamond from "../assets/Diamond.png";
 import Elipse from "../assets/Elipse.png";
+import BImg from "../assets/SVG.svg";
 
 const Wrapper = styled.div`
   position: relative;
@@ -61,7 +62,7 @@ const SectionTitle = styled.h2`
 const CardContainer = styled.div`
   width: 100%;
   display: flex;
-  gap: 40px;
+  gap: 64px;
   margin-top: 20px;
   justify-content: center;
 
@@ -75,7 +76,6 @@ const CardContainer = styled.div`
 const CardBorder = styled.div`
   overflow: hidden;
   display: flex;
-  gap: 20px;
   margin-top: 20px;
   justify-content: center;
 
@@ -89,6 +89,7 @@ const CardBorder = styled.div`
 const CardWrapper = styled.div`
   position: relative;
   width: 512px;
+
   padding: 2px; // Thickness of the border
   border-radius: 12px;
   background: linear-gradient(
@@ -112,7 +113,9 @@ const Card = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
-  height: 100%;
+  height: 320px;
+
+  /* height: 100%; */
   background: #13111b;
   border-radius: 10px; // Slightly less than the wrapper to keep border visible
   backdrop-filter: blur(40.6px);
@@ -124,8 +127,13 @@ const Icon = styled.img`
   margin-left: auto;
 `;
 
+const Bullet = styled.img`
+  padding-right: 12px;
+`;
+
 const ServiceList = styled.div`
   background: transparent;
+  margin-top: 52px;
 `;
 
 const ServiceItem = styled.p`
@@ -157,9 +165,15 @@ const Services = () => {
               <Card>
                 <Icon src={Elipse} style={{ width: "140px", height: "84px" }} />
                 <ServiceList>
-                  <ServiceItem>Digital Marketing</ServiceItem>
-                  <ServiceItem>Web Development</ServiceItem>
-                  <ServiceItem>IT Infrastructure Services</ServiceItem>
+                  <ServiceItem>
+                    <Bullet src={BImg} /> Digital Marketing
+                  </ServiceItem>
+                  <ServiceItem>
+                    <Bullet src={BImg} /> Web Development
+                  </ServiceItem>
+                  <ServiceItem>
+                    <Bullet src={BImg} /> IT Infrastructure Services
+                  </ServiceItem>
                 </ServiceList>
               </Card>
             </CardWrapper>
@@ -169,9 +183,15 @@ const Services = () => {
               <Card>
                 <Icon src={Diamond} style={{ width: "90px", height: "84px" }} />
                 <ServiceList>
-                  <ServiceItem>Security Services</ServiceItem>
-                  <ServiceItem>Strategic & Operational Consulting</ServiceItem>
-                  <ServiceItem>Business Intelligence & Analytics</ServiceItem>
+                  <ServiceItem>
+                    <Bullet src={BImg} /> Security Services
+                  </ServiceItem>
+                  <ServiceItem>
+                    <Bullet src={BImg} /> Strategic & Operational Consulting
+                  </ServiceItem>
+                  <ServiceItem>
+                    <Bullet src={BImg} /> Business Intelligence & Analytics
+                  </ServiceItem>
                 </ServiceList>
               </Card>
             </CardWrapper>
@@ -182,9 +202,15 @@ const Services = () => {
               <Card>
                 <Icon src={Union} style={{ width: "84px", height: "84px" }} />
                 <ServiceList>
-                  <ServiceItem>Project Management</ServiceItem>
-                  <ServiceItem>Compliance & Governance</ServiceItem>
-                  <ServiceItem>Additional Potential Services</ServiceItem>
+                  <ServiceItem>
+                    <Bullet src={BImg} /> Project Management
+                  </ServiceItem>
+                  <ServiceItem>
+                    <Bullet src={BImg} /> Compliance & Governance
+                  </ServiceItem>
+                  <ServiceItem>
+                    <Bullet src={BImg} /> Additional Potential Services
+                  </ServiceItem>
                 </ServiceList>
               </Card>{" "}
             </CardWrapper>

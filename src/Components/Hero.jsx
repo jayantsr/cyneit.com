@@ -33,14 +33,15 @@ const HeadContainer = styled.div`
 
 const HeadTitle = styled.h2`
   background: transparent;
-  width: 900px;
+  width: 1050px;
   color: #ffffff;
-  font-family: Inter;
-  font-size: 5vw;
+  font-family: Inter Display;
+  font-size: 128px;
   font-weight: 500;
-  line-height: 100px;
+  line-height: 132px;
   letter-spacing: -2px;
   text-align: center;
+
   opacity: ${({ fade }) => fade};
   transition: opacity 2s ease-in-out;
   @media screen and (max-width: 768px) {

@@ -4,6 +4,9 @@ import Header from "../Components/Header";
 import Hero from "../Components/Hero";
 import Services from "../Components/Services";
 import About from "../Components/About";
+import Contact from "../Components/Contact";
+import WrCyne from "../Components/WrCyne";
+import Footer from "../Components/Footer";
 
 const PageWrapper = styled.div`
   width: 100%;
@@ -24,8 +27,11 @@ const Home = () => {
         <ContentWrapper>
           <Services />
           <About />
+          <Contact />
+          <Footer />
         </ContentWrapper>
       </PageWrapper>
+      <WrCyne />
     </>
   );
 };
