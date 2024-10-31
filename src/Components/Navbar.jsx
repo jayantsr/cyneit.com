@@ -182,6 +182,10 @@ const MenuIcon = styled.div`
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const handleNavClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <Wrapper>
       <OfferContainer>
@@ -202,10 +206,18 @@ const Navbar = () => {
             {menuOpen ? "✖" : "☰"}
           </MenuIcon>
           <Nav open={menuOpen}>
-            <NavItem href="/">Home</NavItem>
-            <NavItem href="#about">About us</NavItem>
-            <NavItem href="#services">Services</NavItem>
-            <ContactNavItem href="#contact">Contact</ContactNavItem>
+            <NavItem href="/" onClick={handleNavClick}>
+              Home
+            </NavItem>
+            <NavItem href="#about" onClick={handleNavClick}>
+              About us
+            </NavItem>
+            <NavItem href="#services" onClick={handleNavClick}>
+              Services
+            </NavItem>
+            <ContactNavItem href="#contact" onClick={handleNavClick}>
+              Contact
+            </ContactNavItem>
           </Nav>
         </Center>
         <Right>

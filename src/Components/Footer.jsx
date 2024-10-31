@@ -86,7 +86,10 @@ const Center = styled.div`
   justify-content: center;
   align-items: center;
   @media screen and (max-width: 768px) {
-    margin-bottom: 10px; /* Space between sections */
+    margin-bottom: 10px;
+    p {
+      margin-top: 10px;
+    }
   }
 `;
 

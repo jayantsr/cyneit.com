@@ -69,10 +69,11 @@ const Subtitle = styled.p`
 
   @media screen and (max-width: 768px) {
     font-family: Inter;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 20px;
     text-align: left;
+    margin-bottom: 20px;
   }
 `;
 
@@ -84,6 +85,7 @@ const Section = styled.p`
   text-align: left;
   margin-bottom: 20px;
   @media screen and (max-width: 768px) {
+    margin-top: 20px;
     font-family: Inter;
     font-size: 24px;
     font-weight: 400;
