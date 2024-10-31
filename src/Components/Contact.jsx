@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 import styled from "styled-components";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import map from "../assets/Map.png";
+
 const Container = styled.div`
   color: white;
   display: flex;
@@ -71,6 +76,9 @@ const FormContainer = styled.div`
   color: #a0a0a0;
   max-width: 768px;
   margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
   @media screen and (max-width: 768px) {
     max-width: 100%;
   }
@@ -142,7 +150,7 @@ const Input = styled.input`
   border-radius: 8px;
   font-size: 16px;
   font-family: "Inter", sans-serif;
-  text-align: right; /* Aligns the placeholder to the right */
+  text-align: left; /* Aligns the placeholder to the right */
 
   &::placeholder {
     color: #a0a0a0;
@@ -199,6 +207,34 @@ const SubmitBtn = styled.a`
     font-size: 0.6rem;
   }
 `;
+const Button = styled.button`
+  margin-top: 30px;
+  width: 15%;
+  height: 50px;
+  background: #ffffff;
+  border-radius: 36px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Manrope;
+  color: #000000;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  margin-right: 0;
+  margin-left: auto;
+  &:hover {
+    opacity: 0.7;
+    background-color: #ffffff;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    height: 45px;
+    font-size: 14px;
+    text-align: center;
+    margin: 0 auto;
+  }
+`;
 
 const Location = styled.img`
   @media screen and (max-width: 768px) {
@@ -207,6 +243,45 @@ const Location = styled.img`
 `;
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "cylogicsind",
+        "template_5u5lreg",
+        form.current,
+        "yJ1PEANdigHwdlKmD"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          form.current.reset();
+          toast.success("Thank you! We will revert shortly", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            style: {
+              backgroundColor: "transparent", // Toast background color
+              color: "#fff", // Text color
+              fontSize: "1em", // Font size
+              borderRadius: "10px", // Border radius
+              padding: "16px", // Padding
+            },
+          });
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
     <Container id="contact">
       <LeftColumn>
@@ -215,26 +290,51 @@ const Contact = () => {
           Got a project in mind, or simply looking to partner? Complete the form
           below and we’ll get back to you.
         </Subtitle>
-        <FormContainer>
-          {/* <FormTitle>CONTACT DETAILS</FormTitle> */}
-          <FormGroup>
-            <Label htmlFor="name">Name</Label>
-            <Input type="text" id="name" />
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="company">Company</Label>
-            <Input type="text" id="company" />
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="email">Email</Label>
-            <Input type="email" id="email" />
-          </FormGroup>
-          <FormGroup>
-            <MsgLabel htmlFor="message">Message</MsgLabel>
-            <Textarea id="message" rows="4" placeholder="How can we help?" />
-          </FormGroup>
-          <SubmitBtn>Submit Details</SubmitBtn>
-        </FormContainer>
+        <form ref={form} onSubmit={sendEmail}>
+          <FormContainer>
+            {/* <FormTitle>CONTACT DETAILS</FormTitle> */}
+            <FormGroup>
+              <Label htmlFor="name">Name</Label>
+              <Input
+                type="text"
+                id="name"
+                className="form-group"
+                name="user_name"
+                required
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="company">Company</Label>
+              <Input type="text" id="company" />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="email">Email</Label>
+              <Input
+                type="email"
+                id="email"
+                className="form-group"
+                name="user_email"
+                required
+              />
+            </FormGroup>
+            <FormGroup>
+              <MsgLabel htmlFor="message">Message</MsgLabel>
+              <Textarea
+                id="message"
+                rows="4"
+                placeholder="How can we help?"
+                className="form-group"
+                name="message"
+                required
+              />
+            </FormGroup>
+            {/* <SubmitBtn>Submit Details</SubmitBtn> */}
+            <Button className="contactBtn" type="submit" value="send">
+              Submit
+            </Button>
+            <ToastContainer />
+          </FormContainer>
+        </form>
       </LeftColumn>
       <RightColumn>
         <Location src={map} />
