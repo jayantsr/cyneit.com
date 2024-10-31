@@ -5,7 +5,7 @@ const Container = styled.div`
   color: white;
   display: flex;
   justify-content: center;
-  padding-top: 336px;
+  padding-top: 100px;
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
@@ -93,7 +93,7 @@ const Section = styled.p`
 
 const About = () => {
   return (
-    <Container>
+    <Container id="about">
       <LeftColumn>
         <Title>About Us</Title>
         <Subtitle>We are redefining IT support for UK businesses.</Subtitle>
@@ -112,7 +112,7 @@ const About = () => {
           From cloud migration and cybersecurity to IT consulting and managed
           services, we cover every aspect of your IT needs. Whether you're
           seeking to transition to the cloud, optimize your IT infrastructure,
-          or boost your online presence, CYNE IT has you covered.
+          or boost your online presence, CYNE has you covered.
         </Section>
         <Section>
           We also offer digital marketing and branding services, app

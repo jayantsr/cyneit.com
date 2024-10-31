@@ -5,7 +5,7 @@ const Container = styled.div`
   color: white;
   display: flex;
   justify-content: center;
-  padding-top: 336px;
+  padding-top: 100px;
   @media screen and (max-width: 768px) {
     flex-direction: column;
     padding-top: 114px;
@@ -193,7 +193,10 @@ const SubmitBtn = styled.a`
     opacity: 0.7;
   }
   @media screen and (max-width: 768px) {
-    margin-left: 65%;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.6rem;
   }
 `;
 
@@ -205,7 +208,7 @@ const Location = styled.img`
 
 const Contact = () => {
   return (
-    <Container>
+    <Container id="contact">
       <LeftColumn>
         <Title>Contact Us</Title>
         <Subtitle>

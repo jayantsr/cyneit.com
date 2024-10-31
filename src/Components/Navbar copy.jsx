@@ -3,14 +3,15 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  z-index: 9998;
-
+  /* position: fixed; */
+  z-index: 9999;
   @media screen and (max-width: 768px) {
+    height: 200px;
   }
 `;
 
@@ -22,10 +23,6 @@ const OfferContainer = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  a {
-    text-decoration: none;
-    background: transparent;
-  }
 
   h4 {
     color: #ffffff;
@@ -34,6 +31,10 @@ const OfferContainer = styled.div`
     font-size: 1.1rem;
     font-weight: 500;
     line-height: 2rem;
+  }
+  a {
+    text-decoration: none;
+    background: transparent;
   }
 
   @media screen and (max-width: 768px) {
@@ -52,61 +53,29 @@ const NavContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     padding: 20px;
+    /* height: 80px; */
   }
 `;
 
 const Left = styled.div`
   flex: 1;
+  border: 2px solid red;
+`;
+const Logo = styled.img`
+  width: 80.84px;
+  height: auto;
 `;
 
 const Center = styled.div`
+  height: 100%;
+  flex: 1;
+  border: 2px solid red;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1;
+
   @media screen and (max-width: 768px) {
     justify-content: flex-end;
-  }
-`;
-
-const Right = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const ContactBtn = styled.a`
-  display: inline-block;
-  background-color: #ffffff;
-  color: #000000;
-  padding: 0.7rem 1rem;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 36px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    opacity: 0.7;
-  }
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const Logo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  img {
-    width: 80.84px;
-    height: auto;
   }
 `;
 
@@ -123,14 +92,13 @@ const Nav = styled.nav`
   @media screen and (max-width: 768px) {
     display: ${(props) => (props.open ? "flex" : "none")};
     flex-direction: column;
-    position: fixed;
-    top: 10rem;
+    position: absolute;
+    margin-top: 6rem;
     left: 0;
     width: 100%;
     text-align: center;
     background: #ffffff;
     border-radius: 0;
-    z-index: 9999;
   }
 `;
 
@@ -138,7 +106,7 @@ const NavItem = styled.a`
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 600;
-  background-color: #939393;
+  background-color: ${(props) => (props.active ? "#dddee2" : "#939393")};
   color: #000000;
   text-decoration: none;
   line-height: 20px;
@@ -177,12 +145,41 @@ const MenuIcon = styled.div`
   @media screen and (max-width: 768px) {
     display: block;
     margin-right: 16px;
-    z-index: 1001;
+    /* z-index: 1001; */
+  }
+`;
+
+const Right = styled.div`
+  border: 2px solid red;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const ContactBtn = styled.a`
+  display: inline-block;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 36px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
   }
 `;
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState("Home");
 
   return (
     <Wrapper>
@@ -194,9 +191,7 @@ const Navbar = () => {
       <NavContainer>
         <Left>
           <a href="/">
-            <Logo>
-              <img src="assets/logo.svg" alt="Logo" />
-            </Logo>
+            <Logo src="assets/logo.svg" alt="Logo" />
           </a>
         </Left>
         <Center>
@@ -204,10 +199,34 @@ const Navbar = () => {
             {menuOpen ? "✖" : "☰"}
           </MenuIcon>
           <Nav open={menuOpen}>
-            <NavItem href="/">Home</NavItem>
-            <NavItem href="#about">About us</NavItem>
-            <NavItem href="#services">Services</NavItem>
-            <ContactNavItem href="#contact">Contact</ContactNavItem>
+            <NavItem
+              href="/"
+              active={activeItem === "Home"}
+              onClick={() => setActiveItem("Home")}
+            >
+              Home
+            </NavItem>
+            <NavItem
+              href="#about"
+              active={activeItem === "About us"}
+              onClick={() => setActiveItem("About us")}
+            >
+              About us
+            </NavItem>
+            <NavItem
+              href="#services"
+              active={activeItem === "Services"}
+              onClick={() => setActiveItem("Services")}
+            >
+              Services
+            </NavItem>
+            <ContactNavItem
+              href="#contact"
+              active={activeItem === "Contact"}
+              onClick={() => setActiveItem("Contact")}
+            >
+              Contact
+            </ContactNavItem>
           </Nav>
         </Center>
         <Right>

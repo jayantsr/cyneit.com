@@ -40,6 +40,7 @@ const FooterContainer = styled.div`
 `;
 
 const Left = styled.div`
+  flex: 1;
   h4 {
     font-family: Inter;
     font-size: 14px;
@@ -79,12 +80,20 @@ const Left = styled.div`
 `;
 
 const Center = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   @media screen and (max-width: 768px) {
     margin-bottom: 10px; /* Space between sections */
   }
 `;
 
 const Right = styled.div`
+  display: flex;
+  justify-content: end;
+  flex: 1;
   @media screen and (max-width: 768px) {
     display: none; /* Hide logo on smaller screens */
   }
@@ -137,7 +146,7 @@ const Footer = () => {
         <FooterContainer>
           <Left>
             <h4 className="contact">Contact</h4>
-            <p className="email">Email: info@cyneit.com</p>
+            <p className="email">Email: hello@cyneit.com</p>
             <p className="email">Ph: +44 7436 367047</p>
           </Left>
           <Center>
@@ -154,7 +163,7 @@ const Footer = () => {
                 <FontAwesomeIcon icon={faLinkedin} />
               </a>
             </SocialIcons>
-            <p className="copy">© Cyneit, all rights reserved.</p>
+            <p className="copy">© Cyne, all rights reserved.</p>
           </Center>
           <Right>
             <Logo src="assets/logo.svg" />

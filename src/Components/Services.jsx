@@ -125,6 +125,7 @@ const Icon = styled.img`
 
 const Bullet = styled.img`
   padding-right: 12px;
+  background: transparent;
 `;
 
 const ServiceList = styled.div`
@@ -154,7 +155,7 @@ const ServiceItem = styled.p`
 
 const Services = () => {
   return (
-    <Wrapper>
+    <Wrapper id="services">
       <SectionTitleContainer>
         <SectionSubTitle>Explore our range of</SectionSubTitle>
         <SectionTitle>Services</SectionTitle>
