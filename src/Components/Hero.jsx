@@ -21,9 +21,9 @@ const HeadContainer = styled.div`
   width: 100%;
   position: absolute;
   top: 200px;
-  text-align: center;
+  text-align: left;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   background-color: transparent;
   z-index: 10;
@@ -31,15 +31,15 @@ const HeadContainer = styled.div`
 
 const HeadTitle = styled.h2`
   background: transparent;
-  width: 1000px;
+  /* width: 1050px; */
   color: #ffffff;
   font-family: "inter";
-  font-size: 100px;
+  font-size: 72px;
   font-weight: 500;
-  line-height: 132px;
+  line-height: 76px;
   letter-spacing: -2px;
-  text-align: center;
-
+  text-align: left;
+  padding: 200px 110px;
   opacity: ${({ fade }) => fade};
   transition: opacity 2s ease-in-out;
   @media screen and (max-width: 768px) {

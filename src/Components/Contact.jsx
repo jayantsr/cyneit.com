@@ -34,9 +34,9 @@ const RightColumn = styled.div`
 
 const Title = styled.h1`
   font-family: "Inter Display", sans-serif;
-  font-size: 104px;
+  font-size: 56px;
   font-weight: 500;
-  line-height: 104px;
+  line-height: 60px;
   letter-spacing: -2px;
   text-align: left;
   margin: 0;
@@ -54,9 +54,9 @@ const Title = styled.h1`
 const Subtitle = styled.p`
   margin-top: 20px;
   font-family: Inter;
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 40px;
+  line-height: 24px;
   text-align: left;
   @media screen and (max-width: 768px) {
     font-family: Inter;
@@ -216,22 +216,18 @@ const Contact = () => {
           below and we’ll get back to you.
         </Subtitle>
         <FormContainer>
-          <FormTitle>CONTACT DETAILS</FormTitle>
+          {/* <FormTitle>CONTACT DETAILS</FormTitle> */}
           <FormGroup>
             <Label htmlFor="name">Name</Label>
-            <Input type="text" id="name" placeholder="Jonathan" />
+            <Input type="text" id="name" />
           </FormGroup>
           <FormGroup>
             <Label htmlFor="company">Company</Label>
-            <Input type="text" id="company" placeholder="Amaze Studio" />
+            <Input type="text" id="company" />
           </FormGroup>
           <FormGroup>
             <Label htmlFor="email">Email</Label>
-            <Input
-              type="email"
-              id="email"
-              placeholder="jonathan@amazestudio.com"
-            />
+            <Input type="email" id="email" />
           </FormGroup>
           <FormGroup>
             <MsgLabel htmlFor="message">Message</MsgLabel>

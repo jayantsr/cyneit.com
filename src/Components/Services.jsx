@@ -25,9 +25,9 @@ const SectionTitleContainer = styled.div`
 
 const SectionSubTitle = styled.h4`
   font-family: Inter;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 32px;
+  line-height: 20px;
   text-align: left;
 
   @media screen and (max-width: 768px) {
@@ -39,9 +39,9 @@ const SectionSubTitle = styled.h4`
 
 const SectionTitle = styled.h2`
   font-family: Inter;
-  font-size: 104px;
+  font-size: 56px;
   font-weight: 500;
-  line-height: 104px;
+  line-height: 60px;
   letter-spacing: -2px;
   text-align: left;
 
@@ -56,7 +56,7 @@ const SectionTitle = styled.h2`
 const CardContainer = styled.div`
   width: 100%;
   display: flex;
-  gap: 64px;
+  gap: 40px;
   margin-top: 20px;
   justify-content: center;
 
@@ -101,7 +101,7 @@ const Card = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
-  height: 320px;
+  height: 300px;
   background: #13111b;
   border-radius: 10px;
   backdrop-filter: blur(40.6px);
@@ -114,6 +114,7 @@ const Card = styled.div`
 
 const Icon = styled.img`
   background: transparent;
+  margin: 0;
   margin-right: 0;
   margin-left: auto;
 
@@ -124,7 +125,7 @@ const Icon = styled.img`
 `;
 
 const Bullet = styled.img`
-  padding-right: 12px;
+  padding-right: 6px;
   background: transparent;
 `;
 
@@ -140,7 +141,7 @@ const ServiceList = styled.div`
 const ServiceItem = styled.p`
   background: transparent;
   font-family: Inter;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 40px;
   letter-spacing: -0.5px;

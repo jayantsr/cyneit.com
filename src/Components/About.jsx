@@ -40,9 +40,9 @@ const RightColumn = styled.div`
 
 const Title = styled.h1`
   font-family: Inter;
-  font-size: 104px;
+  font-size: 56px;
   font-weight: 500;
-  line-height: 104px;
+  line-height: 60px;
   letter-spacing: -2px;
   text-align: left;
   margin: 0;
@@ -59,11 +59,12 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.p`
+  width: 300px;
   margin-top: 20px;
   font-family: Inter;
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 40px;
+  line-height: 24px;
   text-align: left;
 
   @media screen and (max-width: 768px) {
@@ -77,11 +78,11 @@ const Subtitle = styled.p`
 
 const Section = styled.p`
   font-family: Inter;
-  font-size: 36px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 44px;
+  line-height: 24px;
   text-align: left;
-  margin-top: 40px;
+  margin-bottom: 20px;
   @media screen and (max-width: 768px) {
     font-family: Inter;
     font-size: 24px;
