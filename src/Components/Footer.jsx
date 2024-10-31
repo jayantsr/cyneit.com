@@ -169,6 +169,14 @@ const Footer = () => {
             <Logo src="assets/logo.svg" />
           </Right>
         </FooterContainer>
+        <a
+          href="https://api.whatsapp.com/send?phone=+447436367047&text=Hi+%0D%0ACan+we+discuss"
+          class="whatsapp-float"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src="assets/wa.png" alt="WhatsApp" class="whatsapp-icon" />
+        </a>
       </FooterWrapper>
     </>
   );
