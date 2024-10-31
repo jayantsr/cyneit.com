@@ -165,7 +165,7 @@ const Services = () => {
         <CardBorder>
           <CardWrapper>
             <Card>
-              <Icon src={Elipse} style={{ width: "140px", height: "84px" }} />
+              <Icon src={Elipse} style={{ width: "120px", height: "84px" }} />
               <ServiceList>
                 <ServiceItem>
                   <Bullet src={BImg} /> Digital Marketing
@@ -183,7 +183,7 @@ const Services = () => {
         <CardBorder>
           <CardWrapper>
             <Card>
-              <Icon src={Diamond} style={{ width: "90px", height: "84px" }} />
+              <Icon src={Diamond} style={{ width: "84px", height: "84px" }} />
               <ServiceList>
                 <ServiceItem>
                   <Bullet src={BImg} /> Security Services

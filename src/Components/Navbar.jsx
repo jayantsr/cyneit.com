@@ -168,10 +168,8 @@ const ContactNavItem = styled(NavItem)`
 const MenuIcon = styled.div`
   display: none;
   font-size: 2rem;
-  color: #000000;
+  color: #ffffff;
   cursor: pointer;
-  padding: 0 18px;
-  background: #939393;
   border-radius: 36px;
 
   @media screen and (max-width: 768px) {

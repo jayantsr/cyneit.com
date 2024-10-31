@@ -10,22 +10,21 @@ const Wrapper = styled.div`
 `;
 
 const WAC = styled.img`
-  width: 99%;
-  height: 224px;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 
   @media screen and (max-width: 768px) {
-    display: none;
+    width: 100%;
+    height: auto;
   }
 `;
 
 const WrCyne = () => {
   return (
-    <div>
-      <Wrapper>
-        <WAC src={WACI} />
-      </Wrapper>
-    </div>
+    <Wrapper>
+      <WAC src={WACI} />
+    </Wrapper>
   );
 };
 
