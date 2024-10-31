@@ -215,7 +215,7 @@ const Button = styled.button`
   border-radius: 36px;
   font-weight: bold;
   font-size: 16px;
-  font-family: Manrope;
+  font-family: Inter;
   color: #000000;
   cursor: pointer;
   border: none;
