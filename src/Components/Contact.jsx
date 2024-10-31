@@ -145,7 +145,7 @@ const Input = styled.input`
   color: #a0a0a0;
   border: none;
   padding: 16px;
-  padding-left: 80px; /* Add space for the label */
+  /* padding-left: 80px; */
   padding-right: 16px;
   border-radius: 8px;
   font-size: 16px;
@@ -294,27 +294,29 @@ const Contact = () => {
           <FormContainer>
             {/* <FormTitle>CONTACT DETAILS</FormTitle> */}
             <FormGroup>
-              <Label htmlFor="name">Name</Label>
+              {/* <Label htmlFor="name">Name</Label> */}
               <Input
                 type="text"
                 id="name"
                 className="form-group"
                 name="user_name"
                 required
+                placeholder="Name"
               />
             </FormGroup>
             <FormGroup>
-              <Label htmlFor="company">Company</Label>
-              <Input type="text" id="company" />
+              {/* <Label htmlFor="company">Company</Label> */}
+              <Input type="text" id="company" placeholder="Company" />
             </FormGroup>
             <FormGroup>
-              <Label htmlFor="email">Email</Label>
+              {/* <Label htmlFor="email">Email</Label> */}
               <Input
                 type="email"
                 id="email"
                 className="form-group"
                 name="user_email"
                 required
+                placeholder="Email"
               />
             </FormGroup>
             <FormGroup>
